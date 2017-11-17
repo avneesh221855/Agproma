@@ -1,0 +1,146 @@
+<br>
+<div class="container bklog col-12">
+        <!--div for header starts here-->
+        <div class="dark_header margin-bottom-15">
+                <i class="fa fa-tasks" id="task" aria-hidden="true"></i>
+        <strong class="text-center">Tasks </strong>
+        <!--div for header ends here-->
+        </div>
+        <!-- div for card text starts here  -->
+        <div class="card-text" id="scroll" dnd-sortable-container [dropZones]="['boxers-zone']" >
+                
+        <div class="test_q_list_item" id="list" *ngFor="let item of data; let i = index">
+        <!-- div for task details starts -->
+        <div class="div_details ">
+                
+                <a class="contentstory" data-toggle="modal" href=#mymodal{{i}} >
+                <i class="fa fa-pencil" id="edit" aria-hidden="true"></i> 
+                </a>
+        <span  *ngIf = "item.status == 'Completed'"class="fa fa-check-square-o" id="checklist"></span>
+        <span style="text-align: justify;" dnd-sortable [sortableIndex]="i">{{item.taskName}}</span>
+        <!--div for task details ends  -->
+        </div>
+        <!--div for modal starts here-->
+        <div class="modal  fade mdl" id="mymodal{{i}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- div for modal dialog starts -->
+        <div class="modal-dialog modal-lg">
+        <!-- div for modal header starts -->
+        <div class="modal-header">
+            <strong>Edit Task</strong>
+            <!-- close button starts -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <!-- close button ends -->
+                        </button>
+        <!-- div for modal header ends -->
+        </div>
+        <!--div for modal body starts  -->
+        <div class="modal-body">
+        <!-- form starts -->
+         
+        <form >
+        <!-- datepicker for start and end dates -->
+        <div class="row">
+            <div class="col-md-6">
+        Start Date<input class="form-control-1" type="date"  id="example-date-input" #start></div>
+        <div class="col-md-6">
+        End Date<input class="form-control-1" type="date"  id="example-date-input" #end></div>
+        </div><br>
+        
+        
+        <div class="form-group">
+                <label for="exampleInputEmail1">Edit task</label>
+                <textarea input type="text-input" class="form-control"   placeholder="Write here to edit your task"#task>{{item.taskName}}</textarea>
+                
+              </div>
+        <!-- </div> -->
+        
+        
+        <!-- edit button starts -->
+        <div class="row">
+            <div class="col-md-4">
+                
+        <button  id="icon3"  type="submit" value="sub" name="sub" class="btn rjt snip0059" (click)="updateBacklog(task.value,item,start.value,end.value)" data-dismiss="modal"
+        target=_blank>    &nbsp;Edit
+        <!-- edit button ends -->
+        
+        </button>
+        </div>
+        
+        
+        </div>
+        <!-- form ends -->
+        </form>
+        <!-- div for modal body ends -->
+        </div>
+        <!-- div for modal dialog ends -->
+        </div>
+         <!--div for modal ends here-->
+        </div>
+        </div>
+        <div class="modal fade mdl" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <!-- div for modal dialog starts -->
+        <div class="modal-dialog modal-lg">
+        <!-- div for modal header starts -->
+        <div class="modal-header">
+            
+            Add New Task
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        <!-- div for modal header ends -->
+        </div>
+         <!-- div for modal body starts -->
+        <div class="modal-body">
+        <!-- form starts -->
+        <form >
+        <!-- datepicker for start and end dates -->
+        <div class="row">
+            <div class="col-md-6">
+        Start Date<input class="form-control-1" type="date"  id="start-date-input" #start>
+            </div>
+            
+            <div class="col-md-6">
+        End Date<input class="form-control-1" type="date"  id="end-date-input" #end></div>
+           </div><br>
+        <!-- div for content inside modal starts -->
+        <div class="form-group">
+                <label for="exampleInputEmail1">Add New Task</label>
+                <textarea input type="text-input" class="form-control"   placeholder="Write here to add your task" #tasks></textarea>
+                
+              </div>
+        <!-- <div class="form-group row"> -->
+                <!-- <h4> -->
+        <!-- <label class="col-md-3 col-form-label" for="text-input">Add Tasks</label></h4> -->
+        <!-- div to write the text for add task starts -->
+        <!-- <div class="col-md-10"> -->
+        <!-- <textarea  class="form-control form-rounded"  type="text-area" placeholder="Write" #tasks></textarea>                            -->
+        <!-- div to write the text for add task ends -->
+        <!-- </div> -->
+         <!-- div for content inside modal ends -->
+         <!-- </div> -->
+         <!-- add button starts -->
+         <div class="row">
+             <div class="col-md-4">
+        <button  type="submit" value="sub" name="sub" class="btn rjt snip0059" id="icon1" (click)="addBacklog(tasks.value,start.value,end.value)" data-dismiss="modal"
+         target=_blank>Add
+        <!-- add button ends -->
+         </button></div></div>
+        <!--form ends  -->
+        </form>
+        <!-- div for modal body ends -->
+        </div>
+        <!-- div for modal dialog ends -->
+        </div>
+        </div>
+        <!-- div for card text ends here  --> 
+        </div>
+        <div class="tool">
+        <!-- add button to add new task starts here -->
+        <button class="submit snip0059" data-toggle="modal" id="icon2" data-target="#myModal" type="submit">Add
+        <!-- add button to add new task ends here -->
+         </button>
+         <span class="tooltiptext">click here to add a new task</span>
+        </div>
+        <!--main div for task backlog starts here-->
+        </div>

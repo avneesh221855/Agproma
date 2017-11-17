@@ -1,0 +1,53 @@
+.help-block{
+    color: #E39D9D;
+}
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.logo {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  color: #99003D;
+  margin: 25px 115px;
+  max-width: 295px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.logo h1,
+.logo h5 {
+  text-transform: uppercase;
+}
+.logo h1 {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 2.8em;
+  letter-spacing: -2.2px;
+  line-height: 1.2em;
+  position: relative;
+  font-weight: 800;
+}
+.logo i {
+  font-size: 4.8em;
+  color: #00cc99;
+  position: relative;
+}
+.logo i:after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 3px solid #00cc99;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-width: 5px 0 0 5px;
+  border-radius: 50%;
+}
+/* Demo purposes only */
+body {
+  background-color: #5A59E7;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+  <button class="btn back" (click)="backOnPrevious()"><i class="ion-android-arrow-back"></i><span>Back</span></button>
+  <br>
+  <br>
+  <div class="row heading">
+    <h4 class="col-12 text-center">Add Details Of Project</h4>
+  </div>
+  <br>
+  <div class="jumbotron">
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="text-input">Project Name :</label>
+      <div class="col-md-3">
+        <input type="text" id="text-input" [(ngModel)]="projectData.name" [ngModelOptions]="{standalone: true}" name="text-input" class="form-control form-control-primary"
+          placeholder="Text" required>
+      </div>
+      <label class="col-md-3 col-form-label" for="textarea-input">Mode Of Operation :</label>
+      <div class="col-md-2">
+        <select class="custom-select form-control select" ng-init="'none'" [(ngModel)]="modeOfOperation"  name="rchoice"
+        id="rchoice" aria-placeholder="choose release plan">
+        <option class="option" *ngFor="let modeOfOperation of modeOfOperations" [ngValue]="modeOfOperation">{{modeOfOperation}}</option> <!--to view no. of item in the table-->
+     </select>
+    </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="text-input">Approved By :</label>
+      <div class="col-md-3">
+        <input type="text" id="text-input" [(ngModel)]="projectData.approvedBy" [ngModelOptions]="{standalone: true}" name="text-input" class="form-control form-control-primary"
+          placeholder="Text">
+        </div>
+          <label class="col-md-3 col-form-label" for="text-input">Reviewed By :</label>
+          <div class="col-md-3">
+            <input type="text" id="text-input" [(ngModel)]="projectData.reviewedBy" [ngModelOptions]="{standalone: true}" name="text-input" class="form-control form-control-primary"
+              placeholder="Text">
+          </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="text-input">Velocity :</label>
+      <div class="col-md-3">
+        <input type="text" id="text-input" [(ngModel)]="projectData.velocity" [ngModelOptions]="{standalone: true}" name="text-input" class="form-control form-control-primary"
+          placeholder="Text" required>
+      </div>
+      <label class="col-md-3 col-form-label" for="text-input">Rhythm :</label>
+      <div class="col-md-3">
+        <input type="text" id="text-input" [(ngModel)]="projectData.rhythm" [ngModelOptions]="{standalone: true}" name="text-input" class="form-control form-control-primary"
+          placeholder="Text" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="textarea-input">Project discription :</label>
+      <div class="col-md-9">
+        <textarea id="textarea-input" [(ngModel)]="projectData.projectDescription" [ngModelOptions]="{standalone: true}" name="textarea-input"
+          rows="9" class="form-control form-control-primary" placeholder="Content.." required></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label" for="textarea-input">Technologies Used :</label>
+      <div class="col-md-9">
+        <textarea id="textarea-input" [(ngModel)]="projectData.technologyUsed" [ngModelOptions]="{standalone: true}" name="textarea-input" rows="9"
+          class="form-control form-control-primary" placeholder="Content.." required></textarea>
+      </div>
+    </div>
+    <span *ngIf="condition == 'id'">
+        <button class="btn update" (click)="AddProject()"><i class="ion-android-arrow-forward"></i><span> Add Project</span></button>
+    </span>
+    <span *ngIf="updateId">
+        <button class="btn update" type="submit" (click)="updateProject()"><i class="ion-android-arrow-forward"></i><span> Update Project</span></button>
+    </span>
+  </div>
+</div>

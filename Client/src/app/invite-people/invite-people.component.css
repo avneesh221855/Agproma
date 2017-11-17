@@ -1,0 +1,117 @@
+.card-footer {
+    color: #000000;
+    text-align: left;
+}
+.heading {
+    background-color: #32456d;
+    color: #fff;
+    height: 50px;
+    padding-top: 9px;
+    padding-left: 3px;
+  }
+.team-image
+{
+    height: 100px;
+    width: 100px;
+}
+.fa {
+    color: #00cc99;
+}
+.chipData
+{
+    padding-left : 40px;
+    padding-right : 40px;
+}
+
+.chip {
+    display: inline-block;
+    padding-left: 20px;
+    height: auto;
+    width : 200px;
+    border-radius: 25px;
+    color: #050404;
+    background-color: #CBC6C6;
+    word-wrap: break-word;
+    text-align: center;
+}
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+}
+.chip p
+{
+    padding-top : 10px;
+}
+.closebtn:hover {
+    color: #000;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+span.invite {
+  font-family: 'Raleway', Arial, sans-serif;
+  border: none;
+  background-color: #000000;
+  border-radius: 5px;
+  color: whitesmoke;
+  cursor: pointer;
+  padding: 10px 30px;
+  display: inline-block;
+  margin: 2px 5px;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  font-weight: 400;
+  font-size: 1em;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+span.invite span {
+  display: inline-block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.8;
+}
+
+span.invite i {
+  font-size: 21px;
+  left: 22px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+span.invite:hover span,
+span.invite.hover span {
+  -webkit-transform: translate3d(10px, 0px, 0px);
+  transform: translate3d(10px, 0px, 0px);
+  opacity: 1;
+}
+
+span.invite:hover i,
+span.invite.hover i {
+  opacity: 0.8;
+}
+
+span.invite:active span {
+  -webkit-transform: translate3d(14px, 0px, 0px);
+  transform: translate3d(14px, 0px, 0px);
+}
+
+span.invite:active i {
+  left: 18px;
+}
+.list {
+    margin-top: 8px;
+}
+.scroll {
+    overflow-y: auto;
+    height:auto;
+}

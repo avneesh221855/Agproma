@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="card  inverse">
+      <div class="card-header"><h2>Performance Chart</h2></div><!--chart title-->
+        <hr>
+    <div style="display: block;" *ngIf="taskData">
+    <canvas baseChart width="300" height="102"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+
+    </div>
+  <div class="container" style="margin-bottom: 5px">
+    <table class="table table-responsive table-condensed"><!--Table for the graph starts-->
+      <tbody class="col-lg-12"><tr>
+       <th>Task Id :</th> <th *ngFor="let label of lineChartLabels">{{label}}</th><!--Bring the values -->
+      </tr>
+      <tr *ngFor="let d of lineChartData ; let i=index">
+        <td *ngIf='i == 0'>Planned Hours</td><td  *ngIf='i == 1'>Actual Hours</td><td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j] | number:'.0-0'}}</td>
+      </tr>
+    </tbody>
+    </table>
+    <button class="changebutton" (click)="backward()">Previous</button><!--random function to get backward value for the tasks -->    
+    <button class="changebutton" (click)="forward()">Next</button><!--random function to get forward  value for the tasks --> 
+  </div>
+</div>
+  </div>
+

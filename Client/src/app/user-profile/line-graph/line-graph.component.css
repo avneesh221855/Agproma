@@ -1,0 +1,20 @@
+
+.main{
+    width: 94%;
+    
+    height:8%;
+}
+
+card{
+    background-color: black;
+    box-shadow: black;
+    padding:20%;
+    border-color: #4212A2 solid;
+    align-self: center;
+}
+#tableCard{
+    width:100%;
+}
+.conntainer{
+    padding-left: 500px;
+}

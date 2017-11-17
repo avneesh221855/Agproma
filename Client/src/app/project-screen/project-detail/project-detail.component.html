@@ -1,0 +1,22 @@
+<div class="col-lg-6"><!--this is start of particular project related to to user that login-->
+        <div class="main">
+        <div class="card-one">
+          <div class="top">
+            <div class="wrapper">
+              <div class="mynav">
+               
+                <a *ngIf="Data.actAs == 0" href="javascript:;">
+                  <span routerLink = "/app-dashboard/app-invite-people/{{Data.projectId}}" class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to invite a member"></span>
+                  <span routerLink="/app-dashboard/fill-details/{{Data.projectId}}" class="fa fa-pencil fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to edit a project details"></span>
+                  <span routerLink = "/app-dashboard/app-teams/{{Data.projectId}}" class="fa fa-users fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to view and add members"></span>
+                  <span (click)="delete(Data.projectId)" class="fa fa-trash-o fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to delete a project"></span>
+                  <span ></span>                                 
+                </a>
+              <span (click)="enterProject()" class="fa fa-sign-in fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to view project details"></span>
+              </div>
+              <h1 class="heading" (click)="enterProject()">{{Data.name | titlecase }}</h1>             
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,222 @@
+<div class="headingtop">
+  <h4>Please add a checklist</h4>
+  </div>
+    <hr>
+  <div class="container">
+    <div class="card">
+      <br>
+    <!-- Task  row start -->
+    <div class="row">
+      <div class="col-1">
+        <img src="assets/images/Task.png">
+      </div>
+      <div class="col-2">
+        <h5 class="text-responsive"> Task Name : </h5>
+      </div>
+      <div class="col-8">
+        <span class="card-title text-responsive" *ngIf="task">{{task.title | uppercase}}</span>
+      </div>
+    </div>
+    <!-- Task  row end -->
+<br>
+
+    <!-- checklist  row start -->
+    <div class="row">
+      <div class="col-md-1" id="progressTitle">
+        <img src="assets/images/Progress.png">
+      </div>
+      <div class="col-md-2">
+        <h5 class="text-responsive">Task Progress :</h5>
+      </div>
+      <div class="col-md-8" id="progress">
+        <div class="progress">
+          <div class="progress-bar  progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+            aria-valuemax="100" [ngStyle]=StatusStyle>
+            {{checklistStatus | number:'2.0-0'}}%
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- checklist  row end -->
+    <form>
+        <div class="row form-group">
+            <div class="col-md-1" id="progressTitle">
+                <img src="assets/images/Progress.png">
+              </div>
+          <label id="checklistname" class="col-md-2 col-form-label"><h5>Checklist Name:</h5></label>
+          <div class="col-md-8">
+            <textarea  class="form-control" id="inputEmail3" placeholder="Checklist Name" [(ngModel)]="model.checklistName" [ngModelOptions]="{standalone: true}"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-1" id="progressTitle">
+                <img src="assets/images/Progress.png">
+              </div>
+          <label for="inputPassword3" class="col-sm-2 col-form-label"><h5>Checklist Size:</h5></label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="Checklist Size" [(ngModel)]="model.plannedSize" [ngModelOptions]="{standalone: true}">
+          </div>
+        <div class="col-md-3">
+            <button class="btn addChecklist" (click)="addCheckList()" type="button">
+              <span>Add Checklist</span>
+              <i class="ion-checkmark"></i>
+            </button>
+          </div>
+        </div>
+    </form>
+    <div class="card-text">
+      <div class="row">
+        <!-- dividing column -->
+
+        <!-- input enter checklist  -->
+        
+       
+        <!-- both the buttons -->
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="heading">
+          <h5 class="text-responsive">List Of Checklist
+          </h5>
+        </div>
+<<<<<<< HEAD
+=======
+    <div>
+      <ul>
+        <!-- ngFor starts -->
+        <li *ngFor="let item of details;let i= index" class="row list-group-item list rounded tool">
+          <div class="col-md-9 material-switch">
+            <ul class="tg-list">
+              <li class="tg-list-item">
+                <input class="tgl tgl-flip" id="cb5{{item.checklistId}}" type="checkbox" [checked]="item.status" />
+                <label class="tgl-btn" id="taskdone" data-tg-off="Task" data-tg-on="Done" for="cb5{{item.checklistId}}"></label>
+              </li>
+              <li>
+                <!-- [ngClass]="{crossText: check==item.status}" -->
+                <span [class.crossText]="item.status"  class="text-responsive name">{{item.checklistName | uppercase}}</span>
+              </li>
+            </ul>
+            <br>
+            
+          </div>
+          
+          <div class="col-md-2">
+              
+                  <!-- Button trigger modal -->
+       <div *ngIf="item.status==true"><button type="button" class="btn btn-primary" data-toggle="modal" disabled  >
+       Update Status
+        </button></div>
+        <div *ngIf="item.status==false"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)=updateRemainingTime(i)>
+            Update Status
+             </button></div>
+                </div>
+                <div class="col-md-1 pull-right">
+            
+                  <img src="assets/images/delete.png" (click)="deleteChecklist(item)">
+                
+                </div>
+
+               
+          <!-- ngFor ends here  -->
+>>>>>>> 6f7553e4ed015b6f4a9e2c143417a7a40021ba8f
+
+  
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th class="tableData">Task Name</th>
+      <th class="tableData">Planned Time</th>
+      <th class="tableData">Actual Time</th>
+
+      <th class="tableData">Completed/Remaining</th>
+      <th class="tableData">Status</th>
+      <th class="tableData">Update</th>
+      <th class="tableData">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of details;let i= index" >
+      <td class="tableData" scope="row">{{item.checklistName | uppercase | words : 4}}</td>
+      <td class="tableData">{{item.plannedSize}}</td>
+      <td class="tableData">{{item.actualSize}}</td>
+      <td class="tableData">{{item.completedSize}}/{{item.remainingSize}}</td>
+
+      <td class="tableData">
+              <i *ngIf="item.status==true" class="fa fa-check fa-2x complete" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Checklist Completed"></i>
+              <i *ngIf="item.status==false" class="fa fa-spinner fa-2x pending" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Work Pending"></i>
+      </td>
+
+      
+
+      <td class="tableData">
+
+          <!-- <i  *ngIf="item.status==true" class="fa fa-pencil-square-o fa-2x inActivePencilIcon" aria-hidden="true" ></i> -->
+
+          <i   class="fa fa-pencil-square-o fa-2x activePencilIcon" aria-hidden="true" 
+          data-toggle="modal" data-target="#exampleModal" (click)="updateRemainingTime(i, item.checklistName)"></i>
+    
+        
+         
+        </td>
+      <td class="tableData">    <img src="assets/images/delete.png" (click)="deleteChecklist(item)"></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+    <!-- list row ends here -->
+  </div>
+  <!-- end main container -->
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content">
+        <div class="modal-header headingu">
+          <h5 class="modal-title text-center" id="exampleModalLabel">Update Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <br>
+        <div class="modal-body">
+            <form>
+                <div class="form-group row">
+                    <label for="completed" class="col-sm-4 col-form-label checklistName">Checklist Name :</label>
+                    <div class="col-sm-8 completed">
+                        <textarea  class="form-control updateTextarea" rows="6" placeholder="Checklist Name"  #checkListDetail></textarea>
+                    </div>
+                  </div>
+                <div class="form-group row">
+                    <label for="completed" class="col-sm-3 col-form-label">Actual Size:</label>
+                    <div class="col-sm-3 completed">
+                        <input type="number" min=0  class="form-control" (input)=calculateActual($event) [(ngModel)]="model.actualSize" id="completedInput" #actualSize>
+                    </div>
+                  </div>
+              <div class="form-group row">
+                <label for="completed" class="col-sm-3 col-form-label">Completed:</label>
+                <div class="col-sm-3 completed">
+                    <input type="number" min=0 max="{{actualSizeMax}}" class="form-control" (input)=calculateRemaining($event)  id="completedInput" #completedSize>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="remaining" class="col-sm-2 col-form-label">Remaining:</label>
+                <div class="col-sm-2 completed">
+                    <label for="remaining" class="col-sm-2 col-form-label"><div  #remainSize></div></label>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary submitu" (click)=updateDailyStatus() data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

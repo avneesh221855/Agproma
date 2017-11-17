@@ -1,0 +1,147 @@
+<!-- Add Sprint Button -->
+<button type="button" class="row addButton" data-toggle="modal" data-target="#myModal">
+    <span>Add New Sprint</span> <i class="ion-android-arrow-forward"></i>
+  </button>
+  <hr>
+  <br>
+<!-- End of Add Button -->
+<div class="container-fluid" ng-controller="dateCtrl">
+<div class="row">
+  <!-- Sprint container -->
+  <div class="sprint col-lg-7 col-sm-7 col-md-7 rounded">
+    <div id="header_sprint">
+      <h5 class="text-center">Sprints</h5>
+    </div>
+    <hr>
+    <!-- Sprints already present  -->
+      <div class="sprints card" role="tablist" aria-multiselectable="true" *ngFor=" let sprint of sprints;let i=index">
+        <!-- Sprint and Stories in each sprint -->
+        <a class="card-header collapsed tool" role="tab" aria-hidden="true" data-toggle="collapse" href="#collapseExample{{i}}" aria-expanded="false" aria-controls="collapseExample">
+          <div class="row">
+              <div class="col"><strong>{{sprint.sprintName}}</strong></div>
+              <div class="HeadStartDate"><p class="date"><strong>Start Date : </strong>{{sprint.startDate | date: "dd.MM.y"}}</p></div>
+               </div>
+          <span class="tooltiptext">End Date : {{sprint.endDate | date: "dd.MM.y"}}
+              <br>
+              Status : {{sprint.status}}  
+              <br>
+              No. of days : {{sprint.totalDays}}
+            </span>
+          </a>
+        <!-- Drop here for Stories -->
+        <div role="tabpanel" dnd-droppable (onDropSuccess)="updateStoryInSprint($event,sprint.sprintId)" [dropZones]="['boxers-zone']" id="collapseExample{{i}}" class="collapse panel panel-info">
+          <!-- backlogs in each sprint -->
+          <div class="story" *ngFor="let story of backlogs">
+            <div class="card-text" id="story_name" *ngIf="compareStory(story.sprintId,sprint.sprintId)">
+              <p class="stories_Sprint">{{story.storyName}}
+                  <span routerLink = "/role-dashboard/{{projectId}}/taskadd/{{story.storyId}}" class="fa fa-plus-circle fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to add task"></span>
+                  <span routerLink = "/role-dashboard/{{projectId}}/taskassign/{{story.storyId}}" class="fa fa-tasks fa-lg" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="click to edit a project details"></span>        
+              </p>
+            </div>
+          </div>
+          <!-- End of Stories in Each Sprint -->
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <!-- End of drop here for stories -->
+      </div>
+      <!-- End of Sprints already present -->      
+  </div>
+  <!-- End of Sprint Container -->
+  <!-- Unassigned Backlogs -->
+  <div class="backlogItmes col-lg-4 col-sm-4 col-md-4 rounded">
+    <div id="header_backlog_items">
+      <h5>Unassigned Backlog Items</h5>
+    </div>
+    <hr>
+    <!-- Backlogs that are not assigned -->
+    <div class="unassigned_backlogs">
+      <div *ngFor="let story of unassigned; let i = index" [dropZones]="['boxers-zone']" dnd-draggable [dragEnabled]="true" [dragData]="story">
+        <div class="list-group-item">
+
+          <!-- only unassigned_backlogs needs to be showm -->
+
+
+          <!-- Story Name in Sprints -->
+          <div class="card-text">
+            <p>{{story.storyName}}</p>
+          </div>
+          <!-- End of Story Name Container -->
+        </div>
+      </div>
+      <hr>
+    </div>
+    <!-- End of UnAssigned Backlogs -->
+  </div>
+  <!-- End of Unassigned Backlogs -->
+</div>
+</div>
+<!-- End of Container -->
+<!-- Modal Form -->
+<div class="modal fade mdl" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+  <!-- Modal Content Container -->
+  <div class="modal-content">
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h4 class="modal-title text-center" id="exampleModalLabel">Sprint Details</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- End of Modal Header -->
+    <div class="modal-body container">
+      <!-- Form for Sprint starts -->
+      <form class="form-group">
+        <!-- End of Sprint Name -->
+        <div class="row">
+            <label class="col-3"><strong>Sprint Name</strong></label>
+          <!-- Input Field for Sprint Name -->
+          <div class="col-9">
+            <input type="text" id="text-input" name="sprintname" class="form-control" [(ngModel)]="newsprint.sprintName" placeholder="Enter Sprint Name">
+          </div>
+          <!-- End of Input Field for Sprint Name -->
+        </div>
+        <!-- End of Sprint Name -->
+        <br>
+        <!-- Script Description -->
+       <div class="row">
+        <div class="col-3">
+          <label class="text-responsive"><strong>Sprint Description</strong></label>
+        </div>
+        <!-- TextArea for Sprint Goal -->
+        <div class="col-9">
+          <textarea type="text" cols="30" rows="10" name="sprintgoal" class="form-control" [(ngModel)]="newsprint.sprintGoal" placeholder="Description"></textarea>
+        </div>
+      </div>
+      <!-- End of TextArea for Sprint Goal -->
+      <!-- End of Script Description -->
+      <br>
+        <div class="row">
+          <!-- Start Date Input Field -->
+          <label class="datelabelS col-3"><strong>Start Date</strong></label>
+          <div class="col-3">
+            <input class="form-control start" type="date" id="start-date-input" name="startdate" (change)="updateEndDate(newsprint.startDate)" [(ngModel)]="newsprint.startDate">
+          </div>
+          <label class="datelabelE col-3"><strong>End Date</strong></label>
+          <div class="col-3">
+            <input class="form-control" type="date" id="end-date-input" name="enddate" value="{{x}}" [(ngModel)]="newsprint.endDate"  >
+          </div>
+        </div>
+        <br>
+        <!-- Modal Buttons -->
+        <div class="modal_btns">
+          <!-- Save Button -->
+          <button class="submit" type="submit" (click)="onSaveSprint()" data-dismiss="modal" target="blank"><span>Submit</span>
+            <i class="ion-checkmark"></i>
+          </button>
+          <button class="btn btn-secondary" data-dismiss="modal" data-backdrop="static" data-keyboard="false"><span>Close</span></button>
+        </div>
+        <!-- End of Modal Buttons -->
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<!-- End of Modal -->

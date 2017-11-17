@@ -1,0 +1,117 @@
+.heading{
+    text-align: center;
+    height: 50px;
+    background-color: #009999;
+    color: #fff;
+    padding-top: 10px;
+}
+.headingtop{
+    text-align: center;
+    height: 50px;
+    background-color: #32456d;
+    color: #fff;
+    padding-top: 10px;
+    box-shadow: 5px 5px 7px #1f6d6d ;
+}
+ul {
+list-style:none;
+}
+.list-group li{
+/* color:white; */
+background-color: transparent;
+border-color:transparent;
+}
+
+li::before{
+    content:"\2022";
+    color:transparent
+}
+.card-header{
+    background-color:#32456d;
+    color: #fff;
+}
+/* .card-text li{
+    width: px;
+    height: 20px;
+    margin: 5px 20px 5px 20px;
+
+} */
+
+
+.icons{
+margin-left: 10%;
+margin-right:3%;
+}
+
+.card:hover{
+box-shadow: 0 0 11px rgba(33,33,33,1); 
+}
+.card-header{
+background-color:#32456d ;
+color:#fff;
+text-align: center
+}
+.add{
+margin-left: 1%;
+margin-top: 10%
+}
+.modal-header{
+background-color: darkgrey
+}
+.remove{
+background-color: transparent;
+}
+.chip {
+display: inline-block;
+height: 50px;
+width:70%;
+align-self: center;
+border-radius: 25px;
+background-color: #AFB7B7;
+text-align: left;
+}
+.chip:hover{
+opacity: 0.75;
+}
+.options {
+    background-color: #00cc99;
+}
+.fa {
+    color: #00cc99;
+}
+#teamcard{
+ height:1000px;
+}
+.tool {
+position: relative;
+display: inline-block;
+color: solid;
+padding-bottom: 25px;
+
+}
+
+.tool .tooltiptext {
+visibility: hidden;
+width: 250px;
+background-color: black;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px 0;
+
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+}
+
+.tool:hover .tooltiptext {
+visibility: visible;
+}
+#fa-user{
+float: left;
+margin-left: 0%;
+height: 50px;
+width: 50px;
+border-radius: 50%;
+color: #32456d;
+}

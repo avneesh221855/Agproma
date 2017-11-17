@@ -1,0 +1,82 @@
+<body>
+	<!--hero section-->
+	<section class="hero">
+		<!-- start container -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12">
+					<div class="card border-none">
+							<div class="logo">
+									<i class="ion-ios-star-outline"></i>
+									<h3><strong>AgProMa</strong></h3>
+									<h5><strong>Scrum Planning Tool</strong></h5>
+								  </div>
+						<div class="card-block">
+							<div class="mt-2 text-center" id="heading-colour">
+								<h2>Create Your Account</h2>
+							</div>
+							<p class="mt-4 text-white lead text-center">
+								Sign up to get started with Authority
+							</p>
+							<div class="mt-4">
+								<form>
+
+									<div class="form-group">
+										<h6 class="lab">FirstName</h6><input type="text" required class="form-control" name="first_name" value="" [(ngModel)]="model.FirstName" placeholder="Enter first name">
+									</div>
+									<div class="form-group">
+										<h6 class="lab">LastName</h6><input type="text" required class="form-control" name="last_name" value="" [(ngModel)]="model.LastName" placeholder="Enter last name">
+									</div>
+									<div class="form-group">
+										<h6 class="lab">Organisation</h6><input type="text" required class="form-control" name="organisation" value="" [(ngModel)]="model.Organization" placeholder="Enter Organisation">
+									</div>
+									<div class="form-group">
+										<h6 class="lab">Department</h6><input type="text" required class="form-control" name="department" value="" [(ngModel)]="model.Department" placeholder="Enter department">
+									</div>
+									<div class="form-group">
+										<h6 class="lab">Email-id</h6><input type="email" required class="form-control" name="email" value="" [(ngModel)]="model.Email" placeholder="Enter email address"/>
+									</div>
+									<div class="form-group">
+										<h6 class="lab">Password</h6>
+										<show-hide-password size="md" icon="empty">
+										<input type="password" required class="form-control" name="password" value="" [(ngModel)]="model.Password" placeholder="Enter password">
+										</show-hide-password>
+									</div>
+									<div class="form-group">
+										<h6 class="lab">Confirm Password</h6>
+										<show-hide-password size="md" icon="empty">
+											<input type="password" required class="form-control" name="confirm-password" value="" [(ngModel)]="ConfirmPassword"  placeholder="Confirm password">
+										</show-hide-password>
+										</div>
+									<button type="submit" class="btn btn-primary btn-block" (click)=CreateAccount()>Create Account</button>
+								</form>
+								<div class="clearfix"></div>
+								<p class="content-divider center mt-4"><span>or</span></p>
+							</div>
+							<p class="mt-4 social-login text-center">
+								<!-- for all the social logins -->
+							
+								<a (click)="signInWithFB()" class="btn btn-facebook"><em class="ion-social-facebook"></em></a>
+						
+								<a (click)="signInWithGoogle()" class="btn btn-google"><em class="ion-social-googleplus"></em></a>
+						
+							</p>
+							<p class="text-center" id="account-colour">
+								Already have an account? <a routerLink="/app-signup/:id" >Login Now</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-sm-12 mt-5 footer">
+					<p class="text-white small text-center" id="bottom-colour">
+					
+					</p>
+				</div>
+			</div>
+			<!-- end container -->
+		
+		</div>
+		<!-- end hero section -->
+	</section>
+</body>

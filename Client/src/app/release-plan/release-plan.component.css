@@ -1,0 +1,188 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+button.newRelease {
+ font-family: 'Raleway', Arial, sans-serif;
+ border: none;
+ background-color: #000000 ;
+ border-radius: 5px;
+ color: #ffffff ;
+ cursor: pointer;
+ padding: 10px 40px;
+ display: inline-block;
+ margin: 15px 30px;
+ text-transform: uppercase;
+ line-height: 1.5em;
+ font-weight: 500;
+ font-size: 1em;
+ outline: none;
+ position: relative;
+ opacity: 1;
+ -webkit-transition: all 0.3s;
+ transition: all 0.3s;
+}
+button.newRelease span {
+ display: inline-block;
+ -webkit-transition: all 0.3s;
+ transition: all 0.3s;
+ opacity: 0.8;
+ -webkit-transition-delay: 0.3s;
+ transition-delay: 0.3s;
+}
+button.newRelease i {
+ font-size: 28px;
+ text-align: center;
+ width: 100%;
+ top: 50%;
+ left: 0;
+ display: block;
+ position: absolute;
+ opacity: 0;
+ -webkit-transform: translate(0, -50%);
+ transform: translate(0, -50%);
+ -webkit-transition: all 0.3s;
+ transition: all 0.3s;
+ -webkit-transition-delay: 0s;
+ transition-delay: 0s;
+}
+button.newRelease:before {
+ border-radius: 3px;
+ content: '';
+ top: 3px;
+ bottom: 3px;
+ left: 50%;
+ right: 50%;
+ position: absolute;
+ background: rgba(255, 255, 255, 0);
+ -webkit-transition: all 0.3s;
+ transition: all 0.3s;
+ -webkit-transition-delay: 0.15s;
+ transition-delay: 0.15s;
+}
+button.newRelease:hover,
+button.newRelease.hover {
+ color: #000000 ;
+}
+
+button.newRelease:hover span,
+button.newRelease.hover span {
+ opacity: 0;
+ -webkit-transition-delay: 0s;
+ transition-delay: 0s;
+}
+button.newRelease:hover i,
+button.newRelease.hover i {
+ opacity: 1;
+ -webkit-transition-delay: 0s;
+ transition-delay: 0s;
+}
+button.newRelease:hover:before,
+button.newRelease.hover:before {
+ left: 3px;
+ right: 3px;
+ background: #ffffff ;
+ -webkit-transition-delay: 0s;
+ transition-delay: 0s;
+}
+button.newRelease:active:before {
+ background: rgba(255, 255, 255, 0.7);
+}
+.container-fluid {
+ font-family: 'Raleway', Arial, sans-serif;
+}
+.card-title {
+ background-color: #32456d ;
+ color: whitesmoke;
+}
+.card-header {
+ background-color: #32456d ;
+ color: whitesmoke;
+ text-align: center;
+}
+.card:hover {
+ box-shadow: 0 0 11px rgba(33,33,33,1);
+}
+.sprintsList {
+ background-color: #00cc99 ;
+ color: whitesmoke;
+}
+
+div.sprintPortion {
+ overflow-y: auto;
+ height: 160px;
+}
+ul{
+    list-style: none;
+}
+.topHead {
+  background-color: #009999;
+  color: whitesmoke;
+  padding-top: 10px; 
+  height: 50px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+button.snip1099 {
+  font-family: 'Raleway', Arial, sans-serif;
+  border: none;
+  background-color: #32456d;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 30px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  font-weight: 400;
+  font-size: 1em;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+button.snip1099 span {
+  display: inline-block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.8;
+}
+
+button.snip1099 i {
+  font-size: 21px;
+  left: 22px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+button.snip1099:hover span,
+button.snip1099.hover span {
+  -webkit-transform: translate3d(10px, 0px, 0px);
+  transform: translate3d(10px, 0px, 0px);
+  opacity: 1;
+}
+
+button.snip1099:hover i,
+button.snip1099.hover i {
+  opacity: 0.8;
+}
+
+button.snip1099:active span {
+  -webkit-transform: translate3d(14px, 0px, 0px);
+  transform: translate3d(14px, 0px, 0px);
+}
+
+button.snip1099:active i {
+  left: 18px;
+}
+.modal-header {
+    background-color: #009999;
+    color: whitesmoke;
+}
+.card-body {
+  word-wrap:break-word;
+
+}

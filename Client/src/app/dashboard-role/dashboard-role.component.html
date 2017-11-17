@@ -1,0 +1,47 @@
+<div class="pos-f-t fixed-top header">
+    <!-- for the horizontal line -->
+    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+      <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      <a class="navbar-brand" href="javascript:void(0)">Agproma</a>
+      <div class="collapse navbar-collapse">
+  
+        <ul class="navbar-nav ml-auto mt-2 mt-md-0">
+          <li class="nav-item dropdown" ngbDropdown>
+            <a (click)="onLoggedout()" href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i  class="fa fa-user"></i> Log-Out <b class="caret"></b>
+                      </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-item" (click)="onLoggedout()"><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }} </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- END OF HORIZONTAL LINE -->
+    </nav>
+  </div>
+  <!-- <app-sidebar></app-sidebar> -->
+  <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <ul class="list-group">
+      <div routerLink="/app-dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' }}
+      </div>
+      <div *ngIf = "actAs == 0" routerLink="/role-dashboard/{{projectId}}/epic/{{projectId}}" class="list-group-item">
+        <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'BrainStorming' }}
+        </div>
+        <div *ngIf = "actAs == 0 || actAs == 1" routerLink="/role-dashboard/{{projectId}}/backlog/{{projectId}}" class="list-group-item">
+        <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Product Backlog' }}
+        </div>
+        <div *ngIf = "actAs == 0" routerLink="/role-dashboard/{{projectId}}/releaseplan/{{projectId}}" class="list-group-item">
+        <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'ReleasePlan' }}
+        </div>
+        <div *ngIf = "actAs == 0 || actAs == 1" routerLink="/role-dashboard/{{projectId}}/app-sprint/{{projectId}}" class="list-group-item">
+        <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Sprint Backlog' }}
+        </div>
+    </ul>
+    <!-- end side bar -->
+  </nav>
+  <section class="main-container">
+  <router-outlet></router-outlet>
+  </section>

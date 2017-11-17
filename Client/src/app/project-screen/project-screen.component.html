@@ -1,0 +1,22 @@
+<div class="container">
+  <br>
+    <button class="btn newProject" routerLink="/app-dashboard/fill-details/id">
+      <span>Add new project</span><i class="ion-checkmark"></i></button>
+  <hr>
+  <br>
+  <div class="heading">
+    <h4 class="text-center">Existing Projects</h4>
+  </div>
+  <hr>
+  <div *ngIf="projects">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let item of projects | paginate: { itemsPerPage: 3, currentPage: p }">
+       <app-project-detail *ngIf="item" [Data]="item" (onDelete)="onDelete($event)"></app-project-detail>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="data">
+    <p>There are no existing project,please make new project</p>
+  </div>
+  <div *ngIf="count >= 3"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+</div>

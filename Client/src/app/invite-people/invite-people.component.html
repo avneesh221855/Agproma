@@ -1,0 +1,45 @@
+<div class="container col-lg-6">
+  <!-- text shown on page -->
+<h4 class="heading text-center">Invite People</h4>
+<span class="text-center">Invite your team to work together on this project</span>
+<div class="card text-center">
+  <div class="card-header">
+    <div>
+      <!-- image used as logo -->
+    <img class="team-image" src="../../assets/images/team.png">
+    </div>
+    <!-- shows number of member in that group -->
+    <h4>Member({{memberDetail.length}})</h4>
+  </div>
+  <div class="card-block">
+    <h5 class="card-title">Members can see and create everything in project</h5>
+    <p class="card-text">Invite a person to this project as a member</p>
+    <div class="input-group">
+      <!-- input box is used to take input -->
+        <input type="email" class="form-control" placeholder="Enter Email Address" aria-describedby="basic-addon2" [(ngModel)]="model.email"
+        value={{email}} list="channel" >
+        <datalist id="channel">
+          <option *ngFor="let h of data" value="{{h.email}}">
+        </option>
+        </datalist>
+        <span class="btn invite" id="basic-addon2" (click)="inviteMember()"><span>Invite Member</span><i class="ion-android-arrow-forward"></i></span>
+      </div>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+    <h6 class="col-7">Members already invited to this project</h6>
+    <input type="text" (keyup)="filterByName($event)" class="col-4 form-control" placeholder="Search Box" aria-describedby="basic-addon1">    
+    <span class="input-group-addon col-1" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+  </div>
+    <hr>
+    <div class="row scroll">
+      <!-- this will show number of people that are present in that team -->
+        <div class="chip col-lg-6 col-lg-6 list" *ngFor="let details of inviteList">
+            <!-- this will show logo of man  -->
+            <img src="../../assets/images/man.png" alt="Person">
+            <p>{{details.memberName}}</p>
+        </div>     
+    </div> 
+  </div> 
+</div>
+</div>

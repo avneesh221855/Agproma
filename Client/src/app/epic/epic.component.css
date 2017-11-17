@@ -1,0 +1,254 @@
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+.container-fluid {
+  font-family: 'Raleway', Arial, sans-serif !important;
+}
+button.buttonStyle
+{
+ font-family: 'Raleway', Arial, sans-serif;
+  border: none;
+  background-color: #009999;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 40px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  font-weight: 500;
+  font-size: 1em;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+button.buttonStyle span {
+  display: inline-block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.8;
+}
+button.buttonStyle i {
+  font-size: 22px;
+  right: 15px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+button.buttonStyle:before {
+  content: '';
+  top: 0;
+  right: 0;
+  width: 0;
+  position: absolute;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+button.buttonStyle:hover span,
+button.buttonStyle.hover span {
+  -webkit-transform: translate3d(-20px, 0px, 0px);
+  transform: translate3d(-20px, 0px, 0px);
+  opacity: 1;
+}
+button.buttonStyle:hover i,
+button.buttonStyle.hover i {
+  opacity: 1;
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+button.buttonStyle:hover:before,
+button.buttonStyle.hover:before {
+  width: 44px;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+button.buttonStyle:active:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bklog{
+    padding-top: 30px;
+    padding-left: 140px;
+}
+
+.addbtn{
+    background-color:#222;
+    color: #ffffff;
+    margin-left: 0PX;
+}
+.dark_header {
+    background: #32456d;
+    color: #fff;
+    padding-top: 10px;
+    height: 50px; 
+    text-align: center;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+ }
+ fieldset.custom {
+    border: 1px solid #ddd;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 5px 10px 10px 0px;
+    background-color: #fbfbfb ;
+    border-radius: 5px;
+ }
+ .no-margin {
+    margin: 0 !important;
+ }
+ .test_q_list_item.active {
+    border: 1px solid #1BA9F9 ;
+    background: #fff;
+ }
+ .test_q_list_item {
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    background: #f9f9f9 ;
+    position: relative;
+ }
+ #list {
+   margin-top: 15px;
+   }
+ #test_questions_wrapper, .test_q_list_item {
+    
+    user-select: none;
+ }
+ .div_with_left_icon {
+    position: relative;
+    min-height: 50px;
+ }
+ #list{
+   margin:13px;
+ }
+ li{
+    display: inline;
+ }
+ .container-fluid{
+    color: grey
+ }
+ .btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+ .icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+  .modal-header{
+      background-color: #32456d;
+      color:#ffffff;
+  }
+ #addBtn{
+ float: right;
+ border-radius: 5px;
+ size:200px;
+ }
+ #closeBtn{
+    background-color:white;
+ }
+ #addBtn:hover{
+    background-color: #787171 ;
+    color: white;
+ }
+ .div_details:hover{
+     opacity:0.5;
+ }
+textarea{
+    height: 100px;
+    width: 450px;
+}
+body {margin:2rem;}
+.form-rounded {
+border-radius: 1rem;
+}
+.contentstory{
+    text-decoration: none;
+ color: black;
+}
+.w3-button{
+    size: 80px;
+    float: left;
+}
+.priority{
+  width: 69px;
+   height: 40px
+  }
+  .planned{
+    width: 150px;
+    height: 40px;
+  }
+  .unplanned{
+    width: 109px;
+     height: 40px;
+  }
+.projectName{
+  color:#434040;
+  
+}
+  .tool {
+    position: relative;
+    display: inline-block;
+ }
+ 
+ .tool .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    height: 120px;
+    background-color: #D01C1C ;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+ 
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+ }
+ 
+ .tool:hover .tooltiptext {
+    visibility: visible;
+ }
+ .div_details:hover .storyText{
+   filter: blur(0.7px);
+  -webkit-filter: blur(0.7px);
+}
+ /* .div_details:hover .btnPencil{
+  display:block;
+}
+.div_details .btnPencil{
+  display:none;
+  position:absolute;
+  margin-left:80%;
+  margin-bottom: 50%;
+}
+.div_details:hover .btnDustbin{
+  display:block;
+}
+.div_details .btnDustbin{
+  display:none;
+  position:absolute;
+  margin-left:90%;
+  margin-bottom:50%;
+  
+} */
+.div_details:hover .contentstory{
+  display: block;
+}
+.div_details .contentstory{
+  display: none;
+  float: right;
+  margin-right:18px;
+}
+.div_details:hover .contentstory1{
+  display: table-cell;
+}
+.div_details .contentstory1{
+  display: none;
+  float: right;
+}

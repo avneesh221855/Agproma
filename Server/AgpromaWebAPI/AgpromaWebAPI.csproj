@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\**" />
+    <Content Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BurndownController.cs" />
+    <Compile Remove="Controllers\ChecklistController.cs" />
+    <Compile Remove="Controllers\EpicController.cs" />
+    <Compile Remove="Controllers\ForgetPasswordController.cs" />
+    <Compile Remove="Controllers\ReleasePlanController.cs" />
+    <Compile Remove="Controllers\SprintController.cs" />
+    <Compile Remove="Controllers\TaskBacklogController.cs" />
+    <Compile Remove="Controllers\TaskControllers.cs" />
+    <Compile Remove="Controllers\TeamController.cs" />
+    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Hubs\ReleasePlanHub.cs" />
+    <Compile Remove="Hubs\SprintBacklogHub.cs" />
+    <Compile Remove="Hubs\TaskBacklogHub.cs" />
+    <Compile Remove="Hubs\TaskHub.cs" />
+    <Compile Remove="Hubs\TeamHub.cs" />
+    <Compile Remove="Repository\BacklogRepository.cs" />
+    <Compile Remove="Repository\BurnDownRepository.cs" />
+    <Compile Remove="Repository\ChecklistRepository.cs" />
+    <Compile Remove="Repository\EfficiencyRepository.cs" />
+    <Compile Remove="Repository\InviteRepository.cs" />
+    <Compile Remove="Repository\MasterRepository.cs" />
+    <Compile Remove="Repository\ProjectMemberRepository.cs" />
+    <Compile Remove="Repository\ReleasePlanRepo.cs" />
+    <Compile Remove="Repository\SignUpRepository.cs" />
+    <Compile Remove="Repository\SprintRepository.cs" />
+    <Compile Remove="Repository\TaskBacklog.cs" />
+    <Compile Remove="Repository\TaskBacklogRepository.cs" />
+    <Compile Remove="Repository\TeamRepo.cs" />
+    <Compile Remove="Service\BacklogService.cs" />
+    <Compile Remove="Service\BurndownService.cs" />
+    <Compile Remove="Service\ChecklistService.cs" />
+    <Compile Remove="Service\EfficiencyService.cs" />
+    <Compile Remove="Service\forgetPassword.cs" />
+    <Compile Remove="Service\InviteMembersService.cs" />
+    <Compile Remove="Service\MasterService.cs" />
+    <Compile Remove="Service\ProjectMemberService.cs" />
+    <Compile Remove="Service\ReleasePlanService.cs" />
+    <Compile Remove="Service\SignUpService.cs" />
+    <Compile Remove="Service\SocialLoginService.cs" />
+    <Compile Remove="Service\SprintService.cs" />
+    <Compile Remove="Service\TaskBacklogService.cs" />
+    <Compile Remove="Service\TaskService.cs" />
+    <Compile Remove="Service\TeamService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="1.20.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.0-alpha2-final" />
+    <PackageReference Include="MimeKit" Version="1.20.0" />
+    <PackageReference Include="Serilog" Version="2.6.0-dev-00923" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00771" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

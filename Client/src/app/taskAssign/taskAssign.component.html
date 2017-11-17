@@ -1,0 +1,73 @@
+<!--main heading-->
+<div class="headingtop">
+<h4>Please Assign Task To Member</h4>
+</div>
+<hr>
+<div class="container">
+       <div class="row">
+           <div class="col-md-8">
+               <div class="heading">
+            <h5 class="text-center">TASKS</h5>
+               </div>
+            <hr>
+            <div class="row">
+               <div index='teamcard' class="team card col-6 col-6" *ngFor="let item of AvailTask; let i = index"><!--task cards starts here-->
+                   <div index='teamcard' class="card-header tool" (click)="checkPerson(item)"><!-- card header for tasks-->
+                       <i class="fa fa-tasks"></i>&nbsp;&nbsp;{{item.taskName}} <!--task name -->
+                       <span class="tooltiptext">
+                           Click here to add a checklist
+                           <br>
+                           Status : {{item.status}}
+                       </span>
+                   </div>
+                   <div dnd-droppable (onDropSuccess)="teamListupdate($event,item.taskId)"  [dropZones]="['boxers-zone']" class="panel panel-info">
+                       <div *ngFor="let data of names">
+                         <ul class="list-group">
+                           <li *ngIf="compareTask(item.personId,data.memberId)">
+                           <i class='fa fa-user'></i>&nbsp;&nbsp;{{data.memberName}}</li> <!--names of the person assigned to a particular task-->
+                         </ul>  <!--bring the person assigned to a particular task-->
+                       </div>
+                    <ul><li></li></ul>   <!--list to fill the tasks and members assigned-->                  
+                   </div>
+               </div>
+           </div>
+           </div>
+           
+           <div class="col-md-4">
+               <!--team cards starts here-->
+               <div class="heading">
+           <h5 class="text-center">TEAM MEMBERS</h5>
+               </div>
+           <hr>
+               <div class=" card available">
+                   <!--title starts here-->
+                   <div class="card-header options">
+                       <!--select drop down-->
+                       <select class="custom-select form-control" [(ngModel)]="myId" (ngModelChange) = "getTeamMember()" name="choice" id="choice">
+                           <option value="undefined" disabled selected hidden>Select The Team</option><!--dropdown heading-->
+                           <!--values for dropdown show the name of the team-->
+                           <option *ngFor="let team of AvailTeam" [ngValue]="team.teamId">{{team.teamName}}</option>
+                     </select>
+                   </div>
+                   <!--body for team card-->
+                   <div class="card-body scroll">
+                       <ul class="list-group" *ngFor="let item of TeamMemberList; let i = index">
+                            <div class="chip">
+                           
+                           <li  [dropZones]="['boxers-zone']" dnd-draggable [dragEnabled]= "true" [dragData]="item" class="list-group-item tool"> <!--team member list-->
+                               <i id="fa-user" class="fa fa-user"></i>
+                             <span>  {{item.memberName}}
+                                   <span class="tooltiptext">Drag and drop members on task</span>
+                             </span>
+                               <!--list of team members display here-->
+                               </li>            
+                       </div>    
+                           <li ></li>
+                         
+                       </ul>
+                   </div>
+               </div>
+           </div>
+       </div>
+       
+    </div>

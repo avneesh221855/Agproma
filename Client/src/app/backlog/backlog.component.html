@@ -1,0 +1,179 @@
+<!-- main container starts here -->
+<div class="container-fluid">
+  <!--div for product backlog starts here-->
+  <div class=" bklog col-10">
+    <!-- header starts here -->
+    <div class="dark_header margin-bottom-15">
+      <h4><strong>Product Backlog</strong></h4>
+    </div>
+     <!-- header ends here -->
+    <!--card for product backlog starts here-->
+    <div class="card-text" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="stories">
+      <div class="test_q_list_item" id="list" *ngFor="let item of stories;let i = index">
+        <!--div for backlog details starts here-->
+        <div class="div_details">
+          <!--button for delete starts here-->
+          <span class="contentstory1" (click)="deleteBacklog(item)" title="Delete this story">
+                <i class="btnDustbin fa fa-trash-o" aria-hidden="true"></i>
+          </span>
+          <!--button for delete ends here-->
+          <!--button for edit starts here-->
+          <a class="contentstory show-image" data-toggle="modal" href=#mymodal{{i}} data-backdrop="static" data-keyboard="false" title="Edit this story">
+             <i class=" btnPencil fa fa-pencil" aria-hidden="true"></i>
+              <!--button for edit ends here-->
+          </a>
+           <!-- button for details starts here-->
+          <a class="contentstory show-image" data-toggle="modal" href=#mymodal2{{i}} title=" Show details">
+              <i class=" btnPencil fa fa-info" aria-hidden="true"></i>
+               <!--button for details ends here-->
+          </a>
+          <span style="text-align: justify;" dnd-sortable [sortableIndex]="i" class="storyText">{{item.storyName}}
+          </span>
+        </div>
+        <!--div for backlog details ends here-->
+        <!--modal for details starts here-->
+        <div class="modal fade mdl" id="mymodal2{{i}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+              <!--modal body starts here-->
+              <div class="modal-body">
+                <p><strong>Project Name : </strong>{{item.projectMaster.name}}</p>
+                <p><strong>Status : </strong>{{item.status}}</p>
+                <p><strong>Owner : </strong>{{item.projectMaster.CreatedBy}}</p>
+                <div class="row">
+                  <div class="col"><strong>Priority No. :</strong>{{item.priority}}</div>
+                  <div class="col"><strong>Planned Size : </strong>{{item.plannedSize}}</div>
+                  <div class="col"><strong>Actual Size : </strong>{{item.actualSize}}</div>
+                </div>
+                <br>
+                <p><strong>Comment : </strong></p>
+                <textarea class="form-control form-rounded" rows="5" readonly>{{item.comments}}</textarea>
+              </div>
+              <!--modal body ends here-->
+            </div>
+          </div>
+        </div>
+        <!-- modal for details ends here -->
+        <!--modal for edit starts here-->
+        <div class="modal fade mdl" id="mymodal{{i}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+              </div>
+              <!--modal body starts here-->
+              <div class="modal-body">
+                <!--form for updating  user story details starts here-->
+                <form>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><strong>User Story</strong></label>
+                    <div class="col-md-10">
+                      <textarea class="form-control form-rounded" type="text-area" #story>{{item.storyName}}</textarea>
+                    </div>
+                    <label class="col-md-3 col-form-label" for="text-input"><strong>Remarks</strong></label>
+                    <div class="col-md-10">
+                      <textarea class="form-control form-rounded" type="text-area" rows="3" placeholder="Write" #cmnt>{{item.comments}}</textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="row">
+                        <label class="col-md-8 col-form-label " for="text-input"><strong>Planned Size</strong></label>
+                        <div class="col-md-8">
+                          <input class="form-control priority" type="number" #size value="{{item.plannedSize}}" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="row">
+                        <label class="col-md-8 col-form-label " for="text-input"><strong>Priority</strong></label>
+                        <div class="col-md-8">
+                          <input class="form-control priority" type="number" #prt value={{item.priority}}>
+                        </div>
+                      </div>
+
+                    </div><br><br><br>
+                  </div>
+                  <!--button for updation starts here-->
+                  <button type="submit" value="sub" name="sub" class="buttonStyle" (click)="updateBacklog(story.value,cmnt.value,prt.value,item,size.value)"
+                    data-dismiss="modal" target=_blank><span>Update</span><i class="ion-android-arrow-forward"></i>
+                  </button>
+                  <!--button for updation ends here-->
+                </form>
+                <!--form for updating  user story details ends here-->
+              </div>
+              <!--modal body ends here-->
+            </div>
+          </div>
+        </div>
+        <!-- model for edit ends here -->
+      </div>
+      <!--button for submission starts here-->
+      <button class="buttonStyle" data-toggle="modal" data-target="#myModal" type="submit"><span>Add</span><i class="ion-android-arrow-forward"></i>
+      </button>
+      <!--button for submission ends here-->
+      <!--modal for adding new user story starts here-->
+      <div class="modal fade mdl" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- modal header starts here -->
+            <div class="modal-header">
+              <h5 class="modal-title"> Add New</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- modal header ends here -->
+            <!--modal body starts here-->
+            <div class="modal-body">
+              <!--form for adding user story starts here-->
+              <form>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="text-input"><strong>User Story</strong></label>
+                  <div class="col-md-10">
+                    <textarea class="form-control form-rounded" type="text-area" placeholder="Write" #story></textarea>
+                  </div>
+                  <label class="col-md-3 col-form-label" for="text-input"><strong>Comments</strong></label>
+                  <div class="col-md-10">
+                    <textarea class="form-control form-rounded" type="text-area" rows="3" placeholder="Write" #cmnt> </textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <p><strong>Planned Size:</strong></p>
+                    <input class="form-control priority" type="number" #size>
+                  </div>
+                  <div class="col-6">
+                    <p><strong>Priority:</strong></p>
+                    <input class="form-control priority" type="number" #prt value={{length+1}}>
+                  </div>
+                </div>
+                <br>
+                <!-- add button starts here -->
+                <button class="buttonStyle" type="submit" value="sub" name="sub" (click)="addBacklog(story.value,cmnt.value,prt.value,size.value)"
+                  data-dismiss="modal" target=_blank><span>Add</span><i class="ion-android-arrow-forward"></i>
+                </button>
+                <!-- add button ends here -->
+              </form>
+              <!--form for adding user story ends here-->
+            </div>
+            <!--modal body ends here-->
+          </div>
+        </div>
+      </div>
+      <!--modal for adding new user story ends here-->
+    </div>
+    <!--card for product backlog ends here-->
+  </div>
+  <!--div for product backlog starts here-->
+</div>
+<!-- main container ends here -->

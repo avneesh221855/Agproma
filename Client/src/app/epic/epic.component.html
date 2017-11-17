@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <!--product backlog starts here-->
+  <div class="bklog col-10">
+    <div class="dark_header margin-bottom-15">
+      <h4><strong>Brainstorming</strong></h4>
+    </div>
+    <!--card for epic  starts here-->
+    <div class="card-text" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="data">
+      <div class="test_q_list_item" id="list"*ngFor="let item of data; let i = index">
+        <!--div for backlog details starts here-->
+        <div class="div_details">
+          <!--delete button-->
+          <span class="contentstory1" (click)="deleteBacklog(item)" title="Delete">
+                <i class="btnDustbin fa fa-trash-o" aria-hidden="true"></i></span>
+          <!--edit button-->
+          <a class="contentstory show-image" data-toggle="modal" href=#mymodal{{i}} title="Edit">
+                    <i class=" btnPencil fa  fa-pencil" aria-hidden="true"></i>
+          </a>
+          <span style="text-align: justify;" dnd-sortable [sortableIndex]="i" class="storyText">{{item.description}}
+          </span>
+        </div>
+        <!--modal for updating an epic-->
+        <div class="modal fade mdl" id="mymodal{{i}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <strong>  Edit</strong>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+           
+              <!--modal body starts here-->
+              <div class="modal-body">
+                <!--form for updation starts here-->
+                <form>
+                  <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="text-input"><strong>Brainstorming</strong></label>
+                    <div class="col-md-10">
+                      <textarea class="form-control form-rounded" type="text-area" placeholder="Write" #story>{{item.description}}</textarea>
+                    </div>
+                  </div>
+                  <!--update button-->
+                  <button type="submit" value="sub" name="sub" class="buttonStyle btn btn-xs" (click)="updateBacklog(story.value,item)" data-dismiss="modal"
+                    target=_blank><span>Update</span><i class="ion-android-arrow-forward"></i>
+                 </button>
+                </form>
+                <!--form for updation ends here-->
+              </div>
+              <!--modal body starts here-->
+            </div>
+          </div>
+        </div>
+        <!--modal for updating an epic ends here-->
+      </div>
+      <!--add button for adding new epic-->
+      <button class="buttonStyle" data-toggle="modal" data-target="#myModal" type="submit"><span>Add</span><i class="ion-android-arrow-forward"></i>
+     </button>
+      <!--div for modal starts here-->
+      <div class="modal fade mdl" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <strong>Add new</strong>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+           
+            <!--div for modal-body starts here-->
+            <div class="modal-body">
+              <form>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="text-input"><strong>Brainstorming</strong></label>
+                  <div class="col-md-10">
+                    <textarea class="form-control form-rounded" type="text-area" placeholder="Write" #story></textarea>
+                  </div>
+                </div>
+                <button class="buttonStyle" type="submit" value="sub" name="sub" (click)="addBacklog(story.value)" data-dismiss="modal" target=_blank><span>Add</span><i class="ion-android-arrow-forward"></i></button>
+              </form>
+            </div>
+            <!--div for modal-body ends here-->
+          </div>
+        </div>
+      </div>
+      <!--div for modal ends here-->
+    </div>
+    <!--card for epic ends here-->
+  </div>
+  <!--product backlog ends here-->
+</div>
+<!-- container-fluid ends-->
